@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://scilla:9007/game-service/services/GameService3" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://scilla:9007/game-service/services/GameService3" xmlns:intf="http://scilla:9007/game-service/services/GameService3" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:BeanService" xmlns:tns2="http://remote2.games.ws.services.mtu.ru" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><wsdl:types><schema targetNamespace="urn:BeanService" xmlns="http://www.w3.org/2001/XMLSchema"><import namespace="http://schemas.xmlsoap.org/soap/encoding/"/><complexType name="serversRoutine"><sequence><element name="id" nillable="true" type="xsd:long"/><element name="name" nillable="true" type="xsd:string"/></sequence></complexType><complexType name="serverDescription"><sequence><element name="currentMap" nillable="true" type="xsd:string"/><element name="game" nillable="true" type="tns2:SupportedGameRemote"/><element name="id" nillable="true" type="xsd:long"/><element name="maxPlayers" type="xsd:int"/><element name="name" nillable="true" type="xsd:string"/><element name="ping" type="xsd:long"/></sequence></complexType><complexType name="playerShortInfo"><sequence><element name="fullName" type="xsd:base64Binary"/><element name="ping" type="xsd:int"/><element name="score" type="xsd:int"/></sequence></complexType><complexType name="serverUpdateInfo"><sequence><element name="active" type="xsd:boolean"/><element name="changeStatus" type="xsd:int"/><element name="id" nillable="true" type="xsd:long"/><element name="map" nillable="true" type="xsd:string"/><element name="maxPlayer" type="xsd:int"/><element name="players" nillable="true" type="impl:ArrayOf_tns1_playerShortInfo"/><element name="sessionId" type="xsd:int"/><element name="sessionName" nillable="true" type="xsd:string"/></sequence></complexType><complexType name="serverShortInfo"><sequence><element name="active" type="xsd:boolean"/><element name="currentPlayer" type="xsd:int"/><element name="gameID" nillable="true" type="xsd:long"/><element name="host" nillable="true" type="xsd:string"/><element name="id" nillable="true" type="xsd:long"/><element name="map" nillable="true" type="xsd:string"/><element name="maxPlayer" type="xsd:int"/><element name="name" nillable="true" type="xsd:string"/><element name="port" type="xsd:int"/><element name="regime" nillable="true" type="xsd:string"/><element name="sessionId" type="xsd:int"/><element name="sessionName" nillable="true" type="xsd:string"/><element name="status" nillable="true" type="xsd:long"/></sequence></complexType><complexType name="serverAddress"><sequence><element name="host" nillable="true" type="xsd:string"/><element name="port" type="xsd:int"/></sequence></complexType><complexType name="protocol"><sequence><element name="className" nillable="true" type="xsd:string"/><element name="id" nillable="true" type="xsd:long"/><element name="name" nillable="true" type="xsd:string"/></sequence></complexType><complexType name="game"><sequence><element name="annotation" type="xsd:base64Binary"/><element name="author" nillable="true" type="xsd:string"/><element name="commandLine" type="xsd:base64Binary"/><element name="direction" type="xsd:base64Binary"/><element name="files" nillable="true" type="xsd:string"/><element name="game_picture" type="xsd:base64Binary"/><element name="game_picture_name" nillable="true" type="xsd:string"/><element name="game_url" nillable="true" type="xsd:string"/><element name="id" nillable="true" type="xsd:long"/><element name="name" nillable="true" type="xsd:string"/><element name="playerPingPresent" nillable="true" type="xsd:boolean"/><element name="protocol" nillable="true" type="tns1:protocol"/><element name="publication_date" type="xsd:int"/><element name="publisher" nillable="true" type="xsd:string"/></sequence></complexType><complexType name="rule"><sequence><element name="key" type="xsd:base64Binary"/><element name="value" type="xsd:base64Binary"/></sequence></complexType></schema><schema targetNamespace="http://remote2.games.ws.services.mtu.ru" xmlns="http://www.w3.org/2001/XMLSchema"><import namespace="http://schemas.xmlsoap.org/soap/encoding/"/><complexType name="ProtocolRemote"><sequence><element name="className" nillable="true" type="xsd:string"/><element name="id" nillable="true" type="xsd:long"/><element name="name" nillable="true" type="xsd:string"/></sequence></complexType><complexType name="SupportedGameRemote"><sequence><element name="annotation" type="xsd:base64Binary"/><element name="author" nillable="true" type="xsd:string"/><element name="commandLine" type="xsd:base64Binary"/><element name="direction" type="xsd:base64Binary"/><element name="files" nillable="true" type="xsd:string"/><element name="game_picture" type="xsd:base64Binary"/><element name="game_picture_name" nillable="true" type="xsd:string"/><element name="game_url" nillable="true" type="xsd:string"/><element name="id" nillable="true" type="xsd:long"/><element name="name" nillable="true" type="xsd:string"/><element name="playerPingPresent" nillable="true" type="xsd:boolean"/><element name="protocol" nillable="true" type="tns2:ProtocolRemote"/><element name="publication_date" type="xsd:int"/><element name="publisher" nillable="true" type="xsd:string"/></sequence></complexType></schema><schema targetNamespace="http://scilla:9007/game-service/services/GameService3" xmlns="http://www.w3.org/2001/XMLSchema"><import namespace="http://schemas.xmlsoap.org/soap/encoding/"/><complexType name="ArrayOf_tns1_playerShortInfo"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:playerShortInfo[]"/></restriction></complexContent></complexType><complexType name="ArrayOf_tns1_game"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:game[]"/></restriction></complexContent></complexType><complexType name="ArrayOf_tns1_rule"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:rule[]"/></restriction></complexContent></complexType><complexType name="ArrayOf_tns1_serversRoutine"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:serversRoutine[]"/></restriction></complexContent></complexType><complexType name="ArrayOf_tns1_serverShortInfo"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:serverShortInfo[]"/></restriction></complexContent></complexType><complexType name="ArrayOf_tns1_serverAddress"><complexContent><restriction base="soapenc:Array"><attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:serverAddress[]"/></restriction></complexContent></complexType></schema></wsdl:types>
+  <wsdl:message name="getServersRoutinesResponse">
+    <wsdl:part name="getServersRoutinesResponse" type="impl:ArrayOf_tns1_serversRoutine"/>
+  </wsdl:message>
+  <wsdl:message name="getServerAddressesByGameNameResponse">
+    <wsdl:part name="getServerAddressesByGameNameResponse" type="impl:ArrayOf_tns1_serverAddress"/>
+  </wsdl:message>
+  <wsdl:message name="getRegisteredServerShortInfosResponse">
+    <wsdl:part name="getRegisteredServerShortInfosResponse" type="impl:ArrayOf_tns1_serverShortInfo"/>
+  </wsdl:message>
+  <wsdl:message name="getSupportedGamesResponse">
+    <wsdl:part name="getSupportedGamesResponse" type="impl:ArrayOf_tns1_game"/>
+  </wsdl:message>
+  <wsdl:message name="getSessionRulesRequest">
+    <wsdl:part name="id" type="xsd:long"/>
+    <wsdl:part name="sessionId" type="xsd:int"/>
+  </wsdl:message>
+  <wsdl:message name="getRegisteredServerShortInfosRequest">
+  </wsdl:message>
+  <wsdl:message name="getSessionRulesResponse">
+    <wsdl:part name="getSessionRulesResponse" type="impl:ArrayOf_tns1_rule"/>
+  </wsdl:message>
+  <wsdl:message name="getServerAddressesByGameNameRequest">
+    <wsdl:part name="gameName" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getSupportedGamesRequest">
+  </wsdl:message>
+  <wsdl:message name="getServerUpdateInfoRequest">
+    <wsdl:part name="id" type="xsd:long"/>
+    <wsdl:part name="sessionId" type="xsd:int"/>
+  </wsdl:message>
+  <wsdl:message name="getServerRulesRequest">
+    <wsdl:part name="id" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getServersRoutinesRequest">
+  </wsdl:message>
+  <wsdl:message name="getServerUpdateInfoResponse">
+    <wsdl:part name="getServerUpdateInfoResponse" type="tns1:serverUpdateInfo"/>
+  </wsdl:message>
+  <wsdl:message name="getServerRulesResponse">
+    <wsdl:part name="getServerRulesResponse" type="impl:ArrayOf_tns1_rule"/>
+  </wsdl:message>
+  <wsdl:portType name="GameService3">
+    <wsdl:operation name="getSupportedGames">
+      <wsdl:input message="impl:getSupportedGamesRequest" name="getSupportedGamesRequest"/>
+      <wsdl:output message="impl:getSupportedGamesResponse" name="getSupportedGamesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRules" parameterOrder="id">
+      <wsdl:input message="impl:getServerRulesRequest" name="getServerRulesRequest"/>
+      <wsdl:output message="impl:getServerRulesResponse" name="getServerRulesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSessionRules" parameterOrder="id sessionId">
+      <wsdl:input message="impl:getSessionRulesRequest" name="getSessionRulesRequest"/>
+      <wsdl:output message="impl:getSessionRulesResponse" name="getSessionRulesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServersRoutines">
+      <wsdl:input message="impl:getServersRoutinesRequest" name="getServersRoutinesRequest"/>
+      <wsdl:output message="impl:getServersRoutinesResponse" name="getServersRoutinesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServerUpdateInfo" parameterOrder="id sessionId">
+      <wsdl:input message="impl:getServerUpdateInfoRequest" name="getServerUpdateInfoRequest"/>
+      <wsdl:output message="impl:getServerUpdateInfoResponse" name="getServerUpdateInfoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRegisteredServerShortInfos">
+      <wsdl:input message="impl:getRegisteredServerShortInfosRequest" name="getRegisteredServerShortInfosRequest"/>
+      <wsdl:output message="impl:getRegisteredServerShortInfosResponse" name="getRegisteredServerShortInfosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServerAddressesByGameName" parameterOrder="gameName">
+      <wsdl:input message="impl:getServerAddressesByGameNameRequest" name="getServerAddressesByGameNameRequest"/>
+      <wsdl:output message="impl:getServerAddressesByGameNameResponse" name="getServerAddressesByGameNameResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GameService3SoapBinding" type="impl:GameService3">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSupportedGames">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSupportedGamesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getSupportedGamesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRules">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServerRulesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getServerRulesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSessionRules">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSessionRulesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getSessionRulesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServersRoutines">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServersRoutinesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getServersRoutinesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerUpdateInfo">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServerUpdateInfoRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getServerUpdateInfoResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRegisteredServerShortInfos">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getRegisteredServerShortInfosRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getRegisteredServerShortInfosResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerAddressesByGameName">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getServerAddressesByGameNameRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://games.ws.services.mtu.ru" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getServerAddressesByGameNameResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://scilla:9007/game-service/services/GameService3" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GameService3Service">
+    <wsdl:port binding="impl:GameService3SoapBinding" name="GameService3">
+      <wsdlsoap:address location="http://scilla:9007/game-service/services/GameService3"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
