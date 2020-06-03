@@ -8,5 +8,5 @@ Platforms supported: Win32(x86/x64)
 
 ## 2. Example
 * Sample game client - SDL tic-tac-toe
-* Naive logic tic-tac-toe server
+* Naive logic tic-tac-toe daemon
 

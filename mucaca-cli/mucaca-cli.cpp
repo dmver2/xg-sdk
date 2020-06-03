@@ -56,7 +56,7 @@ class CSettings
 {
 	const TCHAR* server_host;
 	const TCHAR* server_port;
-	TCHAR* buf;
+	const TCHAR* buf;
 	CSettings() : buf(nullptr), server_host(nullptr), server_port(nullptr) {};
 
 public:

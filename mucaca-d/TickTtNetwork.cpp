@@ -35,7 +35,7 @@ void CTickTtNetwork::start_controller()
 
 void CTickTtNetwork::quit_all()
 {
-	Log::log(S_NAME, "gracefull shutdown");
+	Log::log(S_NAME, "graceful shutdown");
 	m_mediator.quit_all();
 //	m_net->disconnect_all();
 	m_net->stop();

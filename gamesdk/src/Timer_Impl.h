@@ -72,7 +72,7 @@ public:
 		: next_execution_time(next)
 		, period(period)
 		, runnable(runnable)
-		, state(NEW)
+		, state(NEW)f
 	{
     }
 */
@@ -95,7 +95,7 @@ public:
      *         not yet run, or this task is scheduled for repeated execution.
      *         Returns false if the task was scheduled for one-time execution
      *         and has already run, or if the task was never scheduled, or if
-     *         the task was already cancelled.  (Loosely speaking, this method
+     *         the task was already canceled.  (Loosely speaking, this method
      *         returns <tt>true</tt> if it prevents one or more scheduled
      *         executions from taking place.)
      */

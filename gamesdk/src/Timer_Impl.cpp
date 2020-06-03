@@ -47,13 +47,13 @@ void Timer_Impl::schedule_task(TimerTask::sptr task, int64 time, int64 period)
 
 	synchronized(m_queue->lock);
 	if (!m_ready2schedule)
-		throw Exception("Timer already cancelled.");
+		throw Exception("Timer already canceled.");
 
 	TimerTask_Impl *ptask = task->m_impl;
 	{
 		synchronized(ptask->lock);
 		if (ptask->state != TimerTask::NEW)
-			throw Exception("Task already scheduled or cancelled");
+			throw Exception("Task already scheduled or canceled");
 		ptask->next_execution_time = time;
 		ptask->period = period;
 		ptask->state = TimerTask::SCHEDULED;
@@ -78,7 +78,7 @@ int Timer_Impl::main()
         main_loop();
     } catch(...) 
 	{
-        // Someone killed this Thread, behave as if Timer cancelled
+        // Someone killed this Thread, behave as if Timer canceled
 //		synchronized(m_queue->lock);
 //        m_ready2schedule = false;
 //        m_queue->clear();  // Eliminate obsolete references

@@ -93,7 +93,7 @@ Packet CPlayMediator::game_over(nethost& host, Packet& packet)
 			p.output << gplay->Outcome();
 		}
 		catch (...) {
-			Log::log(LOG_CATEGORY, Log::error, "Unkown error");
+			Log::log(LOG_CATEGORY, Log::error, "Unknown error");
 		}
 		gplay->Clear();
 	}

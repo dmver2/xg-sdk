@@ -164,7 +164,7 @@ inline SDL_Point CGameLogic<N>::Countermove()
 			SDL_Log("counter move ERROR: cell already checked: {%d, %d} = %d", move.x, move.y, ref);
 		}
 	}
-	SDL_Log("matix:\n%s", this->MatrixAsString().data());
+	SDL_Log("matrix:\n%s", this->MatrixAsString().data());
 
 	return lastmove;
 }
@@ -189,7 +189,7 @@ inline typename bool CGameLogic<N>::Move(const SDL_Point& cursor, typename CGame
 		rc = false;
 		SDL_Log("ERROR: [%d, %d] = %d", cursor.y, cursor.x, val);
 	}
-	SDL_Log("matix:\n%s", this->MatrixAsString().data());
+	SDL_Log("matrix:\n%s", this->MatrixAsString().data());
 
 	return rc;
 }
