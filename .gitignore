@@ -350,3 +350,4 @@ healthchecksdb
 /SDL2_image
 /SDL2_ttf
 /SDL2_ttf-2.0.15
+/unit-gtest
